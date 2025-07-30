@@ -1,0 +1,7 @@
+# Ignore conversation history and cache
+projects/
+ide/
+__store.db
+
+# Ignore local settings
+settings.local.json

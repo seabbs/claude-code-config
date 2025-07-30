@@ -1,0 +1,6 @@
+- never push to main
+- GitHub handle: seabbs
+- Name: Sam Abbott
+- when creating worktrees do so as a subproject of the current project rather than at a higher dir level
+- when updating R documentation make sure to update using devtools::document before commiting
+- use radian with R as an alias so call R scripts using Rscript
