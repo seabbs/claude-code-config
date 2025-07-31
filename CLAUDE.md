@@ -6,4 +6,4 @@
 - use radian with R as an alias so call R scripts using Rscript
 - when possible, use parallel subagents to speed up tasks
 - when updating packages in Julia, use the Pkg package and not rewrite directly the Project.toml
-- for extremely complex reasoning tasks, use "ultrathink" keyword to request deep-thinking-specialist agent (requires permission)
+- for extremely complex reasoning tasks, use "think deeply" or "deep think" keywords to request deep-thinking-specialist agent (requires permission)
