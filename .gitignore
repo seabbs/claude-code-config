@@ -9,3 +9,6 @@
 !commands/**
 !agents/
 !agents/**
+
+# Exception for README
+!README.md
