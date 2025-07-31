@@ -1,7 +1,11 @@
-# Ignore conversation history and cache
-projects/
-ide/
-__store.db
+# Ignore everything
+*
 
-# Ignore local settings
-settings.local.json
+# Exception for CLAUDE.md file
+!CLAUDE.md
+
+# Exception for commands and agents directories
+!commands/
+!commands/**
+!agents/
+!agents/**
