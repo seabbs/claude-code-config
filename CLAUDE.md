@@ -4,3 +4,6 @@
 - when creating worktrees do so as a subproject of the current project rather than at a higher dir level
 - when updating R documentation make sure to update using devtools::document before commiting
 - use radian with R as an alias so call R scripts using Rscript
+- when possible, use parallel subagents to speed up tasks
+- when updating packages in Julia, use the Pkg package and not rewrite directly the Project.toml
+- for extremely complex reasoning tasks, use "ultrathink" keyword to request deep-thinking-specialist agent (requires permission)
