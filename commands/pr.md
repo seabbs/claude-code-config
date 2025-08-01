@@ -9,9 +9,9 @@ I need you to create a pull request based on issue #$ARGUMENTS. Follow these ste
 2. **First, analyze the issue (REQUIRED FIRST STEP):**
    - github-issue-analyzer: Analyze issue #$ARGUMENTS for comprehensive understanding and requirements
 
-3. **Then launch supporting agents in parallel using the issue context:**
-   - codebase-navigator: Identify relevant code areas for the issue (using github-issue-analyzer output)
-   - context-mining-researcher: Extract project-specific coding standards and patterns from CLAUDE.md
+3. **Then launch supporting agents in parallel, providing them with the issue details:**
+   - codebase-navigator: For issue #$ARGUMENTS (provide issue context), search within the codebase to identify relevant code areas that need modification for this specific type of issue
+   - context-mining-researcher: For issue #$ARGUMENTS, search the repository for relevant project context including documentation, configuration files, standards, and patterns that apply to this type of work
 
 4. **Launch feature-planning-orchestrator** with the gathered context to create a comprehensive implementation plan
 
