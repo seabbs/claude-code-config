@@ -27,8 +27,22 @@ I need you to create a pull request based on issue #$ARGUMENTS. Follow these ste
    - Update `pr_plan_issue_$ARGUMENTS.md` with the refined plan
    - Repeat until the plan comprehensively addresses all requirements
 
+7. **Deep thinking review** - For complex issues requiring maximum cognitive analysis:
+   - **Ask the user:** "This issue appears complex. Would you like me to use the deep-thinking-specialist agent (Opus model) to analyze the plan and approach? (y/n)"
+   - If yes: Launch deep-thinking-specialist with the planning context to:
+     - Analyze the implementation approach for potential issues
+     - Consider architectural implications and trade-offs
+     - Identify edge cases or alternative approaches
+     - Provide strategic recommendations
+
+8. **Act on deep thinking review** - If the deep thinking review was conducted:
+   - Review the specialist's recommendations and insights
+   - Update `pr_plan_issue_$ARGUMENTS.md` with any critical insights or modifications
+   - Adjust the implementation approach based on the analysis
+   - If major changes are recommended, consider re-launching feature-planning-orchestrator
+
 ## Phase 2: Implementation
-7. **Execute implementation based on the plan:**
+9. **Execute implementation based on the plan:**
    - Primary agents for implementation:
      - **statistical-implementation-specialist**: For most code implementation
      - **test-debug-fixer**: For writing and fixing tests
@@ -39,12 +53,12 @@ I need you to create a pull request based on issue #$ARGUMENTS. Follow these ste
    - For dependent tasks: Launch agents sequentially
      - Implement feature → Write/run tests → Fix based on test results
      - Each iteration may require code-refactoring-specialist based on feedback
-8. **Monitor progress and adapt agent deployment:**
+10. **Monitor progress and adapt agent deployment:**
    - Use parallel execution when tasks don't depend on each other
    - Use sequential execution when output from one agent informs the next
 
 ## Phase 3: Quality Assurance
-9. **Launch agents in parallel for comprehensive review:**
+11. **Launch agents in parallel for comprehensive review:**
    - code-linting-specialist: Check uncommitted changes for style and quality issues
    - documentation-updater: Update documentation to match code changes
    - code-review-expert: Perform thorough code review
@@ -55,11 +69,11 @@ I need you to create a pull request based on issue #$ARGUMENTS. Follow these ste
    - grant-spec-reviewer: If working on grant-funded project deliverables
 
 ## Phase 4: Final Verification and PR Creation
-10. Fix any issues identified by the review agents
-11. **Self-review with pr-review-analyzer:** Review the completed work as if it were someone else's PR
-12. Verify all acceptance criteria from the plan are met
-13. **Clean up planning documents:** `rm pr_plan_issue_$ARGUMENTS.md`
-14. **Launch commit-pr-engineer agent** to:
+12. Fix any issues identified by the review agents
+13. **Self-review with pr-review-analyzer:** Review the completed work as if it were someone else's PR
+14. Verify all acceptance criteria from the plan are met
+15. **Clean up planning documents:** `rm pr_plan_issue_$ARGUMENTS.md`
+16. **Launch commit-pr-engineer agent** to:
     - Create well-structured commits for all changes
     - Push the branch
     - Create the pull request with title "Fix #$ARGUMENTS: [Clear description]"
