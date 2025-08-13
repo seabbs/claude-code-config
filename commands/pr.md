@@ -8,6 +8,7 @@ I need you to create a pull request based on issue #$ARGUMENTS. Follow these ste
 ## Phase 1: Issue Analysis and Planning
 2. **First, analyze the issue (REQUIRED FIRST STEP):**
    - github-issue-analyzer: Analyze issue #$ARGUMENTS for comprehensive understanding and requirements
+   - **Write analysis to file:** Save the complete analysis output to `issue_analysis_$ARGUMENTS.md` for reference throughout development
 
 3. **Then launch supporting agents in parallel, providing them with the issue details:**
    - codebase-navigator: For issue #$ARGUMENTS (provide issue context), search within the codebase to identify relevant code areas that need modification for this specific type of issue
@@ -16,11 +17,17 @@ I need you to create a pull request based on issue #$ARGUMENTS. Follow these ste
 4. **Launch feature-planning-orchestrator** with the gathered context to create a comprehensive implementation plan
 
 5. **Create planning document** `pr_plan_issue_$ARGUMENTS.md` with the orchestrator's output including:
+   - Reference to detailed issue analysis: `issue_analysis_$ARGUMENTS.md`
    - Issue summary and acceptance criteria
-   - Implementation approach with specific steps
-   - Files to modify/create
+   - **Detailed implementation approach** with specific steps including:
+     - Concrete code snippets for key functions/changes
+     - Specific file modifications with before/after examples
+     - API signatures and data structures to implement
+     - Integration patterns and architectural decisions
+   - Files to modify/create with specific change descriptions
    - Testing strategy
-   - Potential edge cases
+   - Potential edge cases with handling approaches
+   - **Code examples** from issue analysis that can be directly implemented
 
 6. **Iterate on the plan** - Review the plan and if refinements are needed:
    - **Re-launch feature-planning-orchestrator** with the current plan and feedback
@@ -72,7 +79,7 @@ I need you to create a pull request based on issue #$ARGUMENTS. Follow these ste
 12. Fix any issues identified by the review agents
 13. **Self-review with pr-review-analyzer:** Review the completed work as if it were someone else's PR
 14. Verify all acceptance criteria from the plan are met
-15. **Clean up planning documents:** `rm pr_plan_issue_$ARGUMENTS.md`
+15. **Clean up planning documents:** `rm pr_plan_issue_$ARGUMENTS.md issue_analysis_$ARGUMENTS.md`
 16. **Launch commit-pr-engineer agent** to:
     - Create well-structured commits for all changes
     - Push the branch
