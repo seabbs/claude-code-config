@@ -1,8 +1,8 @@
-Create a well-structured commit using the specialized commit-pr-engineer agent.
+Create a well-structured commit using the specialized commit-engineer agent.
 
 ## Process
 
-1. **Launch commit-pr-engineer agent** to:
+1. **Launch commit-engineer agent** to:
    - Review staged and unstaged changes
    - Create appropriate commit messages following conventional format
    - Handle staging of files (excluding temporary/generated files)
