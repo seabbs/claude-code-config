@@ -7,3 +7,8 @@
 - when possible, use parallel subagents to speed up tasks
 - when updating packages in Julia, use the Pkg package and not rewrite directly the Project.toml
 - for extremely complex reasoning tasks, use "think deeply" or "deep think" keywords to request deep-thinking-specialist agent (requires permission)
+- don't use comprehensive
+- minimise use of - for punctuation
+- if asked you can run coderabbit review to get a review of PR
+- The command is: coderabbit review --plain
+- never include "🤖 Generated with [Claude Code]" or "Co-Authored-By: Claude" in commit messages or PR descriptions
