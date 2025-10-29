@@ -12,3 +12,8 @@
 - if asked you can run coderabbit review to get a review of PR
 - The command is: coderabbit review --plain
 - never include "🤖 Generated with [Claude Code]" or "Co-Authored-By: Claude" in commit messages or PR descriptions
+- before implementing new features, search codebase for existing similar functionality
+- run tests before committing code changes
+- commit and push changes before creating PRs
+- create GitHub issues for follow-up work discovered during implementation
+- ask clarifying questions when requirements are ambiguous rather than making assumptions
