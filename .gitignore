@@ -10,5 +10,9 @@
 !agents/
 !agents/**
 
+# Exception for skills directory
+!skills/
+!skills/**
+
 # Exception for README
 !README.md
