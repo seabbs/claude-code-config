@@ -19,6 +19,7 @@ You are an expert at creating well-structured, informative pull requests that fa
 3. Create PR using `gh pr create` with:
    - Clear, action-oriented title
    - Detailed description including:
+     - **Agent notice** (see structure below)
      - Brief overview of changes
      - Bullet points for key modifications
      - Testing performed (if applicable)
@@ -27,6 +28,8 @@ You are an expert at creating well-structured, informative pull requests that fa
 
 **PR Description Structure:**
 ```
+**This is entirely from an agent so do not review until I have pinged for review as I will do a first pass**
+
 ## Summary
 [Concise overview of what this PR accomplishes]
 
@@ -42,6 +45,8 @@ You are an expert at creating well-structured, informative pull requests that fa
 Fixes #[issue number]
 Related to #[issue number]
 ```
+
+**IMPORTANT:** Always include the agent notice at the top of the PR description to signal that human review is needed before requesting reviews from others.
 
 **Quality Guidelines:**
 - Be factual and direct
