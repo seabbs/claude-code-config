@@ -16,3 +16,4 @@
 - commit and push changes before creating PRs
 - create GitHub issues for follow-up work discovered during implementation
 - ask clarifying questions when requirements are ambiguous rather than making assumptions
+- stop running devtools:test with grep read the whole output

@@ -75,6 +75,7 @@ pkgdown::build_site()
 ### testthat Patterns
 
 **Preferred expectations:**
+
 - `expect_identical()` > `expect_equal()` (when exact match expected)
 - Multiple `expect_true()` calls > stacking conditions with `&&`
 - `expect_s3_class()` > `expect_true(inherits(...))`
@@ -139,6 +140,7 @@ wrapper_function <- function(x, y, ...) {}
 ```
 
 **Documentation structure:**
+
 - One sentence per line in descriptions
 - Max 80 characters per line
 - Use `@family` tags for related functions
@@ -176,10 +178,13 @@ process_data <- function(data, method = "standard") {
 ### Naming Conventions
 
 - **Internal functions**: Prefix with `.`
+
   ```r
   .internal_helper <- function() {}
   ```
+
 - **Exported functions**: Use snake_case
+
   ```r
   public_function <- function() {}
   ```
@@ -195,6 +200,7 @@ process_data <- function(data, method = "standard") {
 ### Pre-commit Hooks
 
 Typical `.pre-commit-config.yaml` includes:
+
 - `style-files`: Auto-format R code
 - `lintr`: Lint R code
 - `readme-rmd-rendered`: Ensure README.md is up-to-date
@@ -217,6 +223,7 @@ pre-commit run --all-files
 ### data.table Usage
 
 Many R packages use `data.table` for performance:
+
 - Functions often expect/return `data.table` objects
 - Use `data.table::setDT()` or custom `coerce_dt()` to ensure input is data.table
 - Set keys for efficient joins: `data.table::setkey(dt, col)`
@@ -255,6 +262,7 @@ usethis::use_package("package_name", type = "Suggests")
 ## When to Use This Skill
 
 Activate this skill when:
+
 - Developing R packages
 - Writing R tests
 - Documenting R functions
