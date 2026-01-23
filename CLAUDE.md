@@ -23,5 +23,6 @@
 - run tests before committing code changes
 - commit and push changes before creating PRs
 - create GitHub issues for follow-up work discovered during implementation
+- when creating issues or PRs as bot, add a note at the end: "This was opened by a bot. Please ping @seabbs for any questions."
 - ask clarifying questions when requirements are ambiguous rather than making assumptions
 - stop running devtools:test with grep read the whole output
