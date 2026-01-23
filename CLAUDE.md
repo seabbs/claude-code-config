@@ -2,6 +2,9 @@
 - GitHub handle: seabbs
 - Name: Sam Abbott
 - Bot account: seabbs-bot (signin@samabbott.co.uk)
+- Code repositories are in ~/code
+- GitHub orgs: cmmid, bristolmathmodellers, TuringLang, epiforecasts, HealthEconomicsHackathon, european-modelling-hubs, JuliaEpi, epinowcast, nfidd, EpiAware
+- Use gh CLI to look up repos, create issues, and manage PRs even when not in the source repo (e.g. gh issue create -R seabbs/repo-name)
 - Global git identity is seabbs-bot (all commits default to bot)
 - /commit adds Co-authored-by Sam Abbott (joint work)
 - /commit --as-me commits as Sam Abbott only
