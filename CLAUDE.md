@@ -1,6 +1,11 @@
 - never push to main
 - GitHub handle: seabbs
 - Name: Sam Abbott
+- Bot account: seabbs-bot (signin@samabbott.co.uk)
+- Global git identity is seabbs-bot (all commits default to bot)
+- /commit adds Co-authored-by Sam Abbott (joint work)
+- /commit --as-me commits as Sam Abbott only
+- /commit --bot-only commits as seabbs-bot only (no co-author)
 - when creating worktrees do so as a subproject of the current project rather than at a higher dir level
 - when updating R documentation make sure to update using devtools::document before commiting
 - use radian with R as an alias so call R scripts using Rscript
