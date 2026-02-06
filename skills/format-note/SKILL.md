@@ -13,7 +13,7 @@ Format an existing Obsidian note with appropriate tags and link it from today's 
 5. Add a link to the formatted note: `- [[Note Title]] - Brief description #type`
 
 ## Vault Location
-Default: `/Users/lshsa2/Library/CloudStorage/GoogleDrive-s.e.abbott12@gmail.com/My Drive/cloud/apps/obsidian`
+Default: `/Users/lshsa2/obsidian-vault`
 
 ## Expected Structure
 ```

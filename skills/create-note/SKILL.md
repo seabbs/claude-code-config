@@ -19,4 +19,4 @@ Import a markdown file into your Obsidian library and format it as a note.
 - Date prefix added if duplicate exists
 
 ## Vault Location
-Default: `/Users/lshsa2/Library/CloudStorage/GoogleDrive-s.e.abbott12@gmail.com/My Drive/cloud/apps/obsidian`
+Default: `/Users/lshsa2/obsidian-vault`
