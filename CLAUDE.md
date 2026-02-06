@@ -22,38 +22,22 @@ Always respond in UK English
 - Run coderabbit review with: coderabbit review --plain
 
 ## Workflow
-- Use parallel subagents where possible to speed up tasks
-- When spawning subagents, include relevant /skill invocations in their prompt so they load the context they need
+- Use parallel subagents where possible, each with relevant /skills in their prompt
 - Before implementing new features, search codebase for existing similar functionality
 - Run tests before committing code changes
 - Ask clarifying questions when requirements are ambiguous rather than making assumptions
 - If a Taskfile.yml exists, use it for common tasks (build, test, lint, etc.) via the `task` command
 - On project setup, create a Taskfile.yml to manage common development tasks
-
-## Language-specific
-- When working with R, invoke /r-development for full guidelines
-- When working with Julia, invoke /julia-development for full guidelines
-- When working with Stan, invoke /stan-development for full guidelines
+- Subagent skill mapping: R work → /r-development, Julia → /julia-development, Stan → /stan-development, code changes → /lint + /test, code review → /review, GitHub issues → /issue-summary, statistical models → /stats-implement + /stats-review, academic revision → /academic-revise, literature → /literature-search, verification → /check-requirements
 
 ## Markdown
 - One sentence per line
 - Use `@placeholder` for missing references
 
 ## All languages
-- Max 80 chars per line
+- Max 80 chars per line (except Markdown, Quarto, and .qmd where one sentence per line takes priority)
 - No trailing whitespace
 - No spurious blank lines
-
-## Proactive skill usage
-- Use parallel subagents where possible, each invoking relevant skills for the task
-- After making code changes, invoke /lint and /test before committing
-- When asked to review code, invoke /review
-- When discussing or working on GitHub issues, use /issue-summary
-- When implementing statistical models, invoke /stats-implement
-- After implementing statistical code, invoke /stats-review
-- When revising academic text from reviewer feedback, invoke /academic-revise
-- When searching for literature, invoke /literature-search
-- After completing work against a specification, invoke /check-requirements
 
 ## Writing style
 - Avoid LLM indicator words: comprehensive, practitioner(s), framework (when vague), current approaches, leverage, facilitate, robust, novel, landscape, utilize, foster, harness, streamline, pivotal, nuanced, multifaceted, cornerstone, synergy, overarching
