@@ -1,6 +1,7 @@
 ---
 name: review
 description: Perform a code review with linting, standards checking, and priority-ranked findings
+argument-hint: [commit|pr|all]
 ---
 
 Perform a code review.

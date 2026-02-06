@@ -1,6 +1,7 @@
 ---
 name: issue-reply
 description: Post a helpful reply to a GitHub issue
+argument-hint: [issue-number]
 ---
 
 Post a helpful reply to issue #$ARGUMENTS.

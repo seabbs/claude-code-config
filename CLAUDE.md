@@ -23,6 +23,7 @@ Always respond in UK English
 
 ## Workflow
 - Use parallel subagents where possible to speed up tasks
+- When spawning subagents, include relevant /skill invocations in their prompt so they load the context they need
 - Before implementing new features, search codebase for existing similar functionality
 - Run tests before committing code changes
 - Ask clarifying questions when requirements are ambiguous rather than making assumptions

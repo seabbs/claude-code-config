@@ -1,6 +1,7 @@
 ---
 name: test
 description: Run tests iteratively fixing code or tests until all pass, then commit
+argument-hint: [commit|pr|all]
 ---
 
 Run tests iteratively fixing code or tests until all pass, then commit.

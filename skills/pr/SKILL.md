@@ -1,6 +1,7 @@
 ---
 name: pr
 description: Create a pull request based on a GitHub issue with analysis, implementation, QA, and PR creation
+argument-hint: [issue-number]
 ---
 
 Create a pull request based on issue #$ARGUMENTS. Follow these steps systematically:

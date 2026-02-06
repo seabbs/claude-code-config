@@ -1,6 +1,7 @@
 ---
 name: scan-issues
 description: Scan repositories and identify issues that Claude Code can efficiently handle
+argument-hint: [org-or-repo]
 ---
 
 Scan all repositories in $ARGUMENTS and identify issues that Claude Code can efficiently handle.

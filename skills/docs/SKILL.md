@@ -1,6 +1,7 @@
 ---
 name: docs
 description: Check that all code has appropriate documentation and fix gaps
+argument-hint: [commit|pr|all]
 ---
 
 Check that all code has appropriate documentation.

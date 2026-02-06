@@ -1,3 +1,6 @@
+---
+argument-hint: [file-or-feedback]
+---
 Refactor code to meet project standards: $ARGUMENTS
 
 1. Review the specification, guidance, or review feedback provided

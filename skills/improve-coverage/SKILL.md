@@ -1,6 +1,7 @@
 ---
 name: improve-coverage
 description: Improve test coverage by identifying gaps and generating meaningful tests
+argument-hint: [target-file-or-module]
 ---
 
 Improve test coverage for $ARGUMENTS.

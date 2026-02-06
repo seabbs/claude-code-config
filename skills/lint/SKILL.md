@@ -1,6 +1,7 @@
 ---
 name: lint
 description: Lint, format, and optionally commit changes
+argument-hint: [commit|pr|all]
 ---
 
 Lint, format, and optionally commit changes.

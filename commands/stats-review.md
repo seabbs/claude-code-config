@@ -1,3 +1,6 @@
+---
+argument-hint: [analysis-plan-or-section]
+---
 Review statistical analysis code against the analysis plan: $ARGUMENTS
 
 1. Review changes (PR diff or uncommitted modifications)

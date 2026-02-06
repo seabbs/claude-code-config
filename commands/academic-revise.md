@@ -1,3 +1,6 @@
+---
+argument-hint: [reviewer-comments-or-file]
+---
 Revise academic text in response to reviewer comments: $ARGUMENTS
 
 1. Parse each reviewer comment to identify core concerns, priority, and implicit issues

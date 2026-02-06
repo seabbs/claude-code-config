@@ -1,3 +1,6 @@
+---
+argument-hint: [issue-or-spec]
+---
 Verify completed work against original requirements: $ARGUMENTS
 
 1. Extract all requirements from the source (issue, spec, user request)

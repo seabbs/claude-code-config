@@ -1,6 +1,7 @@
 ---
 name: paper-summary
 description: Summarise an academic paper from URL, DOI, or file path
+argument-hint: [url-or-doi-or-path]
 ---
 
 Summarise an academic paper: $ARGUMENTS (URL, DOI, or file path)

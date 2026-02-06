@@ -1,6 +1,7 @@
 ---
 name: literature-search
 description: Search local bibliography files and Paperpile for relevant papers
+argument-hint: [topic]
 ---
 
 Search for relevant papers on: $ARGUMENTS

@@ -1,6 +1,7 @@
 ---
 name: preprint-search
 description: Search for new preprints in infectious disease modelling from arXiv, medRxiv, and bioRxiv
+argument-hint: [topic]
 ---
 
 Search for new preprints in infectious disease modelling. Areas of interest: $ARGUMENTS

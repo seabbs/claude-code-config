@@ -1,3 +1,6 @@
+---
+argument-hint: [create|list|cleanup]
+---
 Manage git worktrees: $ARGUMENTS
 
 Operations: create, list, cleanup

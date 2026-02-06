@@ -1,3 +1,6 @@
+---
+argument-hint: [specification]
+---
 Implement statistical model from specification: $ARGUMENTS
 
 1. Define scope: inputs, outputs, integration points with existing code

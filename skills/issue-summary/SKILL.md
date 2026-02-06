@@ -1,6 +1,7 @@
 ---
 name: issue-summary
 description: Summarise a GitHub issue conversation with focus on the last message
+argument-hint: [issue-number]
 ---
 
 Summarise the conversation in issue #$ARGUMENTS with special focus on the last message.
