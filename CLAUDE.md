@@ -14,7 +14,8 @@
 - use radian with R as an alias so call R scripts using Rscript
 - when possible, use parallel subagents to speed up tasks
 - when updating packages in Julia, use the Pkg package and not rewrite directly the Project.toml
-- don't use comprehensive
+- avoid LLM indicator words: comprehensive, practitioner(s), framework (when vague), current approaches, leverage, facilitate, robust, novel, landscape, utilize, foster, harness, streamline, pivotal, nuanced, multifaceted, cornerstone, synergy, overarching
+- minimise colon use in prose; only use when genuinely needed
 - minimise use of - for punctuation
 - if asked you can run coderabbit review to get a review of PR
 - The command is: coderabbit review --plain
