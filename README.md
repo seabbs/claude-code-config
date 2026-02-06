@@ -2,148 +2,135 @@
 
 Personal Claude Code configuration for Sam Abbott (@seabbs).
 
+## Architecture
+
+This configuration uses a **skills-first** approach to minimise context window usage.
+
+- **Skills** (`skills/`): Only load a one-line `description` field into the system prompt. Full content loads on invocation. This is where most functionality lives.
+- **Commands** (`commands/`): Short (<20 line) slash commands for quick tasks. Work the same as skills but without supporting files.
+- **CLAUDE.md**: Global preferences, coding standards, and proactive skill dispatch rules.
+
+Previously, agents (`agents/`) were used. Both agents and skills load their `description` field into the system prompt. The context savings come from writing concise descriptions and from the fact that agent entries also include tool lists and examples, which added up. With concise one-line descriptions, 33 skills use ~500 tokens vs ~4-6k tokens for 19 agents. Skills also offer features agents lack: supporting files, argument substitution, invocation control, and auto-loading based on context.
+
 ## Contents
 
-- **CLAUDE.md**: Global preferences and coding standards
-- **agents/**: Specialised agents for different tasks
-- **commands/**: Custom slash commands for common workflows
-- **skills/**: Domain knowledge and best practices
+```
+~/.claude/
+  CLAUDE.md              # Global instructions
+  commands/              # 9 short slash commands
+  skills/                # 33 skills (one-liner in system prompt)
+```
 
-## Skills Reference
-
-Skills provide domain knowledge that Claude can apply when working on specific types of tasks.
-They are activated contextually based on the work being done.
-
-### Development Skills
-
-| Skill | Description | When to Use |
-|-------|-------------|-------------|
-| **r-development** | R package development with devtools, testthat, roxygen2 | Working on R packages, writing R tests, documenting R functions |
-| **julia-development** | Julia package development with SciML standards, Distributions.jl patterns | Developing Julia packages, writing Julia tests, performance optimisation |
-| **stan-development** | Stan probabilistic programming with cmdstanr integration | Writing Stan models, integrating Stan with R, debugging inference |
-| **taskfile-automation** | Task (taskfile.dev) automation for development workflows | Projects with Taskfile.yml, discovering available tasks |
-| **project-organization** | Project scaffolding and structure patterns | Creating new projects, reviewing structure, adding config files |
-
-### Research Skills
-
-| Skill | Description | When to Use |
-|-------|-------------|-------------|
-| **academic-writing-standards** | Academic writing for peer-reviewed papers | Reviewing manuscripts, editing papers, scientific writing |
-| **grant-application-setup** | Setting up grant application repositories | Creating new grant projects, organising proposals |
-| **grant-compliance-checking** | Grant compliance, deliverables, funder requirements | Checking work against grant specs, preparing reports |
-| **analyzing-research-papers** | Systematic paper analysis and summarisation | Reading papers, extracting key findings, literature review |
-
-## Agents Reference
-
-Agents are specialised subprocesses for complex multi-step tasks.
-
-### Code Quality
-
-| Agent | Purpose |
-|-------|---------|
-| **code-linting-specialist** | Check code quality, run linting, fix issues |
-| **code-review-expert** | Comprehensive code review with context analysis |
-| **code-refactoring-specialist** | Refactor code to meet standards |
-| **test-debug-fixer** | Debug failing tests, fix test suites |
-
-### Git/GitHub
-
-| Agent | Purpose |
-|-------|---------|
-| **commit-engineer** | Create well-structured commits |
-| **pr-engineer** | Create pull requests with detailed descriptions |
-| **pr-review-analyzer** | Review PRs for quality and compliance |
-| **github-issue-analyzer** | Analyse issues, find related code |
-| **worktree-manager** | Manage git worktrees |
-
-### Research/Analysis
-
-| Agent | Purpose |
-|-------|---------|
-| **statistical-implementation-specialist** | Implement statistical models from specs |
-| **statistical-analysis-reviewer** | Review statistical code against plans |
-| **literature-finder** | Find relevant papers in bibliography |
-| **academic-revision-specialist** | Revise text based on reviewer feedback |
-
-### Planning/Navigation
-
-| Agent | Purpose |
-|-------|---------|
-| **codebase-navigator** | Search codebase for relevant areas |
-| **feature-planning-orchestrator** | Create implementation plans |
-| **context-mining-researcher** | Extract context from project files |
-| **requirements-compliance-checker** | Verify work meets requirements |
-
-## Commands Reference
-
-Slash commands for streamlined workflows.
+## Skills (33)
 
 ### Development
 
-| Command | Description |
-|---------|-------------|
-| `/test [scope]` | Run tests, fix failures, commit |
-| `/commit` | Create well-structured commit |
-| `/lint [scope]` | Lint, format, optionally commit |
-| `/review [scope]` | Comprehensive code review |
-| `/docs` | Check documentation |
-| `/pr <issue>` | End-to-end PR workflow from issue |
+| Skill | Description |
+|-------|-------------|
+| `/commit` | Create a well-structured commit with conventional format |
+| `/lint` | Lint, format, and optionally commit changes |
+| `/test` | Run tests, fix failures iteratively, then commit |
+| `/review` | Code review with linting and priority-ranked findings |
+| `/docs` | Check and fix documentation gaps |
+| `/pr` | End-to-end PR workflow from a GitHub issue |
+| `/improve-coverage` | Identify test coverage gaps and generate tests |
+| `/update-deps` | Review and update dependencies with incremental testing |
+
+### Language-specific
+
+| Skill | Description |
+|-------|-------------|
+| `/r-development` | R package development (devtools, testthat, roxygen2) |
+| `/julia-development` | Julia package development (SciML standards) |
+| `/stan-development` | Stan probabilistic programming (cmdstanr integration) |
+| `/taskfile-automation` | Task (taskfile.dev) automation for project workflows |
+| `/project-organization` | Project scaffolding and structure patterns |
 
 ### Research
 
-| Command | Description |
-|---------|-------------|
-| `/paper-summary` | Summarise research paper |
-| `/literature-search <topic>` | Search for relevant papers |
+| Skill | Description |
+|-------|-------------|
+| `/academic-writing-standards` | Academic writing standards for peer-reviewed papers |
+| `/analyzing-research-papers` | Systematic paper analysis and summarisation |
+| `/paper-summary` | Summarise an academic paper from URL, DOI, or file |
+| `/literature-search` | Search bibliography files and Paperpile |
+| `/preprint-search` | Search arXiv, medRxiv, bioRxiv for new preprints |
+| `/grant-application-setup` | Set up grant application repositories |
+| `/grant-compliance-checking` | Check work against grant requirements |
+| `/humanizer` | Remove signs of AI-generated writing from text |
 
 ### GitHub
 
-| Command | Description |
-|---------|-------------|
-| `/github-dashboard` | GitHub activity summary |
-| `/issue-summary <num>` | Summarise issue conversation |
-| `/issue-reply <num>` | Post helpful reply to issue |
-| `/repo-summary` | Repository overview |
-| `/repo-activity` | Recent repository activity |
+| Skill | Description |
+|-------|-------------|
+| `/github-dashboard` | Notifications, PR status, issue triage |
+| `/issue-summary` | Summarise a GitHub issue conversation |
+| `/issue-reply` | Post a helpful reply to a GitHub issue |
+| `/repo-summary` | Repository overview with activity metrics |
+| `/repo-activity` | Recent repository activity analysis |
+| `/scan-issues` | Find issues suitable for automated resolution |
+| `/add-bot` | Add seabbs-bot as repo collaborator |
+
+### Notes
+
+| Skill | Description |
+|-------|-------------|
+| `/create-note` | Import markdown into Obsidian |
+| `/format-note` | Format an Obsidian note with tags and daily link |
+| `/minutes` | Create meeting minutes from a transcript |
 
 ### Other
 
+| Skill | Description |
+|-------|-------------|
+| `/uk-news` | UK news summary from BBC and Guardian |
+| `/tmux-workflow` | Tmux session management |
+
+## Commands (9)
+
+Short commands that stay under 20 lines. These are lightweight enough that their system prompt footprint is minimal.
+
 | Command | Description |
 |---------|-------------|
-| `/uk-news` | UK news summary from BBC/Guardian |
-| `/preprint-search <area>` | Search for new preprints |
-| `/update-deps` | Review and update dependencies |
-| `/improve-coverage <target>` | Improve test coverage |
+| `/academic-revise` | Revise academic text from reviewer comments |
+| `/check-requirements` | Verify work against original requirements |
+| `/refactor` | Refactor code to meet project standards |
+| `/stats-implement` | Implement statistical model from a specification |
+| `/stats-review` | Review statistical analysis against the plan |
+| `/worktree` | Manage git worktrees |
+| `/performance-review` | Analyse agent/command usage in the conversation |
+| `/mark-pr-agent` | Add draft notice to agent-generated PRs |
+| `/read-up` | Read documentation entries noted in context |
+
+## Why skills over agents?
+
+Both skills and agents load their `description` field into the system prompt. The context savings are a result of writing concise descriptions, not an inherent mechanism difference. You could write concise agent descriptions or verbose skill descriptions.
+
+In practice, agent entries include tool lists and example blocks alongside the description, making them heavier even with similar description text. Skills appear as a compact list of one-liners.
+
+| Aspect | Agents | Skills |
+|--------|--------|--------|
+| System prompt format | Description + tools + examples per entry | One-liner list |
+| Typical tokens per entry | ~200-300 | ~15-20 |
+| Auto-load based on context | No (requires explicit delegation) | Yes |
+| Supporting files | No | Yes (templates, scripts, examples) |
+| Argument substitution | No | Yes (`$ARGUMENTS`, `$0`, `$1`) |
+| Invocation control | Always available | `disable-model-invocation`, `user-invocable` |
+| Dynamic context | No | Yes (`!`command`` syntax) |
+
+The main win is the auto-loading and compact listing, plus better features for defining reusable workflows.
 
 ## Usage
 
-This configuration is automatically loaded by Claude Code when placed in `~/.claude`.
-
-### Invoking Skills
-
-Skills are activated automatically based on context, but can be invoked explicitly:
-
-```
-/r-development
-/julia-development
-/project-organization
-```
-
-### Invoking Commands
+Skills and commands are invoked with `/name`:
 
 ```
 /commit
 /test pr
 /review commit
 /pr 123
+/literature-search Bayesian nowcasting
+/stats-implement hierarchical model from section 3.2
 ```
 
-### Using Agents
-
-Agents are typically invoked through commands or by Claude when appropriate.
-They can also be requested directly:
-
-```
-"Use the test-debug-fixer agent to fix these failing tests"
-"Launch the codebase-navigator to find authentication code"
-```
+CLAUDE.md includes proactive dispatch rules so Claude will suggest relevant skills during workflows (e.g. `/lint` and `/test` before committing, `/review` when asked to check code).

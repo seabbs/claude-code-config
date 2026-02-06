@@ -29,27 +29,10 @@ Always respond in UK English
 - If a Taskfile.yml exists, use it for common tasks (build, test, lint, etc.) via the `task` command
 - On project setup, create a Taskfile.yml to manage common development tasks
 
-## Julia
-- Use `@doc raw" "` or `@doc " "` for docstrings
-- Avoid type instability
-- Ensure efficient precompilation
-- Follow SciML coding standards
-- When updating packages, use the Pkg package and not rewrite directly the Project.toml
-
-## R
-- Use `?function_name` to access help and understand arguments
-- `expect_identical` > `expect_equal`
-- Multiple `expect_true` > stacking with `&&`
-- `expect_s3_class` > `expect_true(inherits(...))`
-- Use `@inheritParams` to avoid doc duplication
-- Use specific `expect_*` functions (e.g., `expect_lt`)
-- Prefix internal functions with `.`
-- Update R documentation with devtools::document before committing
-- Use radian with R as an alias so call R scripts using Rscript
-- Do not run devtools::test with grep; read the whole output
-
-## Stan
-- Use new array syntax: `array[] int` not `int[]`
+## Language-specific
+- When working with R, invoke /r-development for full guidelines
+- When working with Julia, invoke /julia-development for full guidelines
+- When working with Stan, invoke /stan-development for full guidelines
 
 ## Markdown
 - One sentence per line

@@ -9,6 +9,11 @@ Use this skill when working with R packages to ensure proper development workflo
 
 ## Development Workflow
 
+### R Environment
+
+- Use radian with R as an alias so call R scripts using Rscript
+- Do not run devtools::test with grep; read the whole output
+
 ### Package Building and Management
 
 ```r
