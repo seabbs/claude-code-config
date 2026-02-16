@@ -14,5 +14,12 @@
 !skills/
 !skills/**
 
+# Exception for settings
+!settings.json
+!settings.local.json
+
 # Exception for README
 !README.md
+
+# Exception for git config
+!.gitignore

@@ -25,6 +25,10 @@ Always respond in UK English
 - Use parallel subagents where possible, each with relevant /skills in their prompt
 - Before implementing new features, search codebase for existing similar functionality
 - Run tests before committing code changes
+- Run language-standard linters on changed files before committing and fix all issues:
+  - R: `lintr::lint()` on each changed `.R` file (respect project `.lintr` config)
+  - Julia: `JuliaFormatter.format_file()` on changed `.jl` files
+  - Stan: syntax check with `cmdstan` on changed `.stan` files
 - Ask clarifying questions when requirements are ambiguous rather than making assumptions
 - If a Taskfile.yml exists, use it for common tasks (build, test, lint, etc.) via the `task` command
 - On project setup, create a Taskfile.yml to manage common development tasks
